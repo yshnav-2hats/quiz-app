@@ -14,3 +14,13 @@ button {
     margin-top: 20px;
     font-size: 18px;
 }
+
+.answerBtn.correct {
+    background-color: green;
+    color: white;
+}
+
+.answerBtn.wrong {
+    background-color: red;
+    color: white;
+}
