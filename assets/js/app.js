@@ -7,7 +7,7 @@ function startQuiz() {
     score = 0;
     document.getElementById("quizBox").innerHTML = "Loading questions...";
 
-    fetch("https://opentdb.com/api.php?amount=5&type=multiple")
+    fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple")
         .then(function (response) {
             return response.json();
         })
@@ -50,7 +50,7 @@ function checkAnswer(encodedAnswer) {
     }
 
     currentIndex++;
-    showQuestion();
+    showQuestions();
 }
 
 function shuffle(array) {
@@ -61,6 +61,6 @@ function shuffle(array) {
 
 function decodeHTML(text) {
     const textarea = document.createElement("textarea");
-    textarea.innerHtml = text;
+    textarea.innerHTML = text;
     return textarea.value;
 }
