@@ -29,7 +29,6 @@ function showQuestion() {
 
   const question = questions[currentIndex];
 
-  // combine correct and incorrect answers, then shuffle
   let answers = question.incorrect_answers.slice();
   answers.push(question.correct_answer);
   answers = shuffle(answers);
@@ -39,6 +38,8 @@ function showQuestion() {
   answers.forEach(function (answer) {
     html += '<button class="answerBtn" data-answer="' + encodeURIComponent(answer) + '" onclick="checkAnswer(this)">' + decodeHTML(answer) + "</button><br>";
   });
+
+  html += '<br><button id="nextBtn" onclick="showQuestion()" style="display:none;">Next</button>';
 
   document.getElementById("quizBox").innerHTML = html;
 }
@@ -65,7 +66,7 @@ function checkAnswer(clickedButton) {
 
   currentIndex++;
 
-  setTimeout(showQuestion, 1200);
+  document.getElementById("nextBtn").style.display = "inline-block";
 }
 
 function shuffle(array) {
